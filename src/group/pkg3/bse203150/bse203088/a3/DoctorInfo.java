@@ -38,11 +38,11 @@ public class DoctorInfo extends javax.swing.JFrame {
         doc_contact = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        doc_qual = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        doc_bldgrp = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        doc_gender = new javax.swing.JComboBox<>();
         add_doc = new javax.swing.JButton();
         update_doc = new javax.swing.JButton();
         del_doc = new javax.swing.JButton();
@@ -84,20 +84,20 @@ public class DoctorInfo extends javax.swing.JFrame {
         jLabel6.setText("Qualification");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
-        jTextField1.setText(".");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 110, -1));
+        doc_qual.setText(".");
+        jPanel1.add(doc_qual, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 110, -1));
 
         jLabel7.setText("Blood Group");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
+        doc_bldgrp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
+        jPanel1.add(doc_bldgrp, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
 
         jLabel8.setText("Gender");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        doc_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+        jPanel1.add(doc_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         add_doc.setText("Add Doctor");
         add_doc.addActionListener(new java.awt.event.ActionListener() {
@@ -142,11 +142,19 @@ public class DoctorInfo extends javax.swing.JFrame {
     private void add_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_docActionPerformed
         // TODO add your handling code here:
         
-        int id=Integer.parseInt(doc_id.getText());
-        String name =doc_name.getText();
-        String fn=doc_fn.getText();
-        String email=doc_email.getText();
-        int contact=Integer.parseInt(doc_contact.getText());
+       int id = Integer.parseInt(doc_id.getText());
+        String name = doc_name.getText();
+        String fatherName = doc_fn.getText();
+        String email = doc_email.getText();
+        int contact = Integer.parseInt(doc_contact.getText());
+        
+        String qual = doc_qual.getText();
+        String gender = (String) doc_gender.getSelectedItem();
+        String bloodGroup = (String) doc_bldgrp.getSelectedItem();
+        
+        DoctorDAO add_doc=new DoctorDAO();
+        Doctor doc=new Doctor(id,name,fatherName,email,contact,address,qual,gender,bloodGroup,joiningDate);
+        add_doc.create(doc);
         
         
     }//GEN-LAST:event_add_docActionPerformed
@@ -189,14 +197,15 @@ public class DoctorInfo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_doc;
     private javax.swing.JButton del_doc;
+    private javax.swing.JComboBox<String> doc_bldgrp;
     private javax.swing.JTextField doc_contact;
     private javax.swing.JTextField doc_email;
     private javax.swing.JTextField doc_fn;
+    private javax.swing.JComboBox<String> doc_gender;
     private javax.swing.JTextField doc_id;
     private javax.swing.JTextField doc_name;
+    private javax.swing.JTextField doc_qual;
     private javax.swing.JButton get_data;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -206,7 +215,6 @@ public class DoctorInfo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton new_doc;
     private javax.swing.JButton update_doc;
     // End of variables declaration//GEN-END:variables
