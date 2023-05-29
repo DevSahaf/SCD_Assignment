@@ -8,9 +8,7 @@ package group.pkg3.bse203150.bse203088.a3;
  *
  * @author sahaf
  */
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 class Doctor {
     private int id;
