@@ -100,6 +100,11 @@ public class DoctorInfo extends javax.swing.JFrame {
         jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         add_doc.setText("Add Doctor");
+        add_doc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_docActionPerformed(evt);
+            }
+        });
         jPanel1.add(add_doc, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
         update_doc.setText("Update");
@@ -133,6 +138,18 @@ public class DoctorInfo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void add_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_docActionPerformed
+        // TODO add your handling code here:
+        
+        int id=Integer.parseInt(doc_id.getText());
+        String name =doc_name.getText();
+        String fn=doc_fn.getText();
+        String email=doc_email.getText();
+        int contact=Integer.parseInt(doc_contact.getText());
+        
+        
+    }//GEN-LAST:event_add_docActionPerformed
 
     /**
      * @param args the command line arguments

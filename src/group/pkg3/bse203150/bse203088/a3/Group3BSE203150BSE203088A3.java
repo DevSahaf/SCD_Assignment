@@ -15,7 +15,12 @@ public class Group3BSE203150BSE203088A3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       
+       DB db=new DB();
+       System.out.println("DB Connected");
         login l=new login();
+        l.setVisible(true);
+        
        
     }
     

@@ -16,7 +16,7 @@ public class DB {
     public static Connection connect()  {
        try {
             
-            String url = "jdbc:mysql://localhost:3306/hms";
+            String url = "jdbc:mysql://localhost:3306/HospitalDB";
             return DriverManager.getConnection(url, "root", "");
         } catch (SQLException e) {
            System.out.format("An error occurred: %s\n", e.getMessage());
