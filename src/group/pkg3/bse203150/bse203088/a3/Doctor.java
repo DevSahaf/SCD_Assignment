@@ -21,18 +21,18 @@ class Doctor {
     private String gender;
     private String bloodGroup;
     private String joiningDate;
-
+    
     public Doctor(int id, String name, String fatherName, String emailID, int contact, String address, String qualification, String gender, String bloodGroup, String joiningDate) {
         this.id = id;
         this.name = name;
         this.fatherName = fatherName;
         this.emailID = emailID;
         this.contact = contact;
-        this.address = address;
+        
         this.qualification = qualification;
         this.gender = gender;
         this.bloodGroup = bloodGroup;
-        this.joiningDate = joiningDate;
+        
     }
 
     public int getId() {
@@ -78,10 +78,12 @@ class Doctor {
     public String getAddress() {
         return address;
     }
-
+    
     public void setAddress(String address) {
         this.address = address;
     }
+
+   
 
     public String getQualification() {
         return qualification;
@@ -110,8 +112,7 @@ class Doctor {
     public String getJoiningDate() {
         return joiningDate;
     }
-
-    public void setJoiningDate(String joiningDate) {
-        this.joiningDate = joiningDate;
-    }
+   
+   
 }
+
